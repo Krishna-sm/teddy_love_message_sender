@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+
+@theme{
+    --font-pregular: Poppins_Regular;
+    --font-pmedium: Poppins_Medium;
+    --font-plight: Poppins_Light;
+    --font-pbold: Poppins_bold; 
+}
+
+body {
+   @apply font-pregular text-white;
+}
