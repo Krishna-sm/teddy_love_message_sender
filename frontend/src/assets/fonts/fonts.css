@@ -14,3 +14,7 @@
     font-family: Poppins_Regular;
     src: url(./Poppins-Regular.ttf);
 }
+@font-face {
+    font-family: LoveLight;
+    src: url(./LoveLight-Regular.ttf);
+}

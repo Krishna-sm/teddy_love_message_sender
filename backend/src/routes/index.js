@@ -7,6 +7,14 @@ const routes = [
     {
         path:"/auth",
         routes:require("./AuthRoute")
+    },
+    {
+        path:"/create",
+        routes:require("./CreateRoute")
+    },
+    {
+        path:'/quotes',
+        routes:require('./RandomQoutes')
     }
 ]
 

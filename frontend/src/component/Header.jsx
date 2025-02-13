@@ -15,7 +15,9 @@ const Header = () => {
                <li><Link to={'/register'}>Register</Link></li> 
                </>:
               <>
-              <li>Create</li>
+              <li>
+                <Link to={'/'}>Create</Link>
+              </li>
               <li>
                 <button onClick={logoutHandler} className=' px-3 cursor-pointer xl:px-6 py-2 rounded-sm border border-white hover:bg-pink-900 transition-all duration-300'>Logout</button>
               </li>

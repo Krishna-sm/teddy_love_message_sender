@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage' 
 import { MainProvider } from './context/mainContext'
 import MainLayout from '../../backend/src/layouts/MainLayout'
+import ShowTeaddy from './pages/ShowTeaddy'
 const App = () => {
   return (
     <div className='min-h-screen bg-pink-500'>
@@ -23,6 +24,7 @@ const App = () => {
          
           <Route path='/login' element={<LoginPage />} /> 
           <Route path='/register' element={<RegisterPage />} /> 
+          <Route path='/message/:id' Component={ShowTeaddy}/>
         </Routes>
       </div> 
       </MainProvider>

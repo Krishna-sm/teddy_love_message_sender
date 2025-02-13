@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { BASE_URL } from '../constant'
 export const AxiosClient =  axios.create({
-    baseURL:"http://localhost:1234/api/v1"
+    baseURL: BASE_URL +"/api/v1"
 })

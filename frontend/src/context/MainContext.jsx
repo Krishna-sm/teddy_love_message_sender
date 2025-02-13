@@ -11,7 +11,9 @@ export const mainContext = createContext({
         id:""
     },
     FetchUserProfile:()=>{},
-    logoutHandler(){}
+    logoutHandler(){},
+    messages:[],
+    fetchAllMessage:()=>{}
 })
 
 export const useMainContext = ()=> useContext(mainContext)
@@ -19,6 +21,7 @@ export const useMainContext = ()=> useContext(mainContext)
 export const MainProvider = ({children}) => {
     const [loading,setLoading] = useState(true)
     const [user,setUser] = useState(null)
+    const [messages,setMessages] = useState([])
 
     const navigate = useNavigate()
 
@@ -50,8 +53,32 @@ export const MainProvider = ({children}) => {
                 }
         }
 
+
+        async function fetchAllMessage(){
+            {
+                try {
+                    const token = localStorage.getItem("token") || ""
+                    if(!token) return
+
+                    const response =await AxiosClient.get("/create/message",{
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    })
+                    const data = await response.data
+                    setMessages(data);
+                     
+                    
+
+                } catch (error) { 
+
+                }
+        }
+        }
+
         useEffect(()=>{
             FetchUserProfile()
+            fetchAllMessage()
         },[])
 
         if(loading){
@@ -62,7 +89,7 @@ export const MainProvider = ({children}) => {
 
     
   return (
-    <mainContext.Provider value={{user,FetchUserProfile,logoutHandler}}>
+    <mainContext.Provider value={{user,FetchUserProfile,logoutHandler,messages,fetchAllMessage}}>
         {children}
     </mainContext.Provider>
   )
